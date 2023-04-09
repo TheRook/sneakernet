@@ -83,8 +83,8 @@ while True:
 		# concatenate our content that we want to embed
 		idat_body += content_in.read()
 		
-		if len(idat_body) > width * height:
-			exit("ERROR: Input files too big for cover image resolution.")
+		#if len(idat_body) > width * height:
+		#	exit("ERROR: Input files too big for cover image resolution.")
 		
 		# if its a zip file, fix the offsets
 		if sys.argv[2].split(".")[-1].lower() in ["zip", "jar"]:
