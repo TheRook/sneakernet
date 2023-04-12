@@ -1,0 +1,4 @@
+.button-bar-bottom {
+  justify-content: flex-end;
+  touch-action: none;
+}

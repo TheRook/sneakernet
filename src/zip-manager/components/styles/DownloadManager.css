@@ -1,0 +1,30 @@
+.downloads {
+  min-block-size: 5vh;
+  overflow: auto;
+  flex: 1;
+}
+
+.downloads ol {
+  flex-direction: column;
+  row-gap: 0.75em;
+}
+
+.downloads li {
+  flex-direction: column;
+  row-gap: 0.25em;
+  align-items: normal;
+}
+
+.downloads .download-entry {
+  display: flex;
+}
+
+.downloads .download-entry-name {
+  flex: 1;
+}
+
+.downloads li progress {
+  width: 100%;
+  block-size: 1em;
+  accent-color: var(--accent-color);
+}

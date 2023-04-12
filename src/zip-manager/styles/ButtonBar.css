@@ -1,0 +1,45 @@
+.button-bar {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 1.25ch;
+  row-gap: 0.5em;
+}
+
+.button-bar .button-group {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 0.75ch;
+  row-gap: 0.5em;
+}
+
+.button-bar button {
+  block-size: 2.5em;
+  opacity: 0.85;
+}
+
+.button-bar button:not([disabled]):hover {
+  opacity: 1;
+}
+
+.button-bar button {
+  padding-inline: 1.5ch;
+  font-family: inherit;
+}
+
+.button-bar button:not([disabled]) {
+  cursor: pointer;
+}
+
+@media (max-width: 80ch) {
+  .button-bar button {
+    block-size: 2.25em;
+    padding-inline: 1ch;
+  }
+}
+
+@media (max-width: 40ch) {
+  .button-bar button {
+    font-size: 0.7em;
+    block-size: 1.75em;
+  }
+}

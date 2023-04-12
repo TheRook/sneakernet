@@ -1,0 +1,47 @@
+.entries {
+  block-size: 60vh;
+  min-block-size: 5vh;
+  resize: vertical;
+  overflow: auto;
+  box-sizing: border-box;
+}
+
+.entries ol {
+  flex-direction: column;
+}
+
+.entries li {
+  padding: 0.25em;
+  outline: none;
+  column-gap: 0.75ch;
+}
+
+.entries .entry-select {
+  accent-color: var(--checkbox-accent-color);
+  margin: 0;
+  max-block-size: 1em;
+}
+
+.entries .entry-name {
+  display: flex;
+  user-select: none;
+  overflow: hidden;
+  column-gap: 0.25ch;
+  flex: 1;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.entries .entry-highlighted {
+  background-color: var(--accent-color);
+  color: var(--highlighted-text-color);
+}
+
+.entries .entry-highlighted ::selection {
+  background-color: var(--text-color);
+  color: var(--bg-color);
+}
+
+.entries .directory .entry-name::after {
+  content: "/";
+}

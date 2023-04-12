@@ -1,0 +1,212 @@
+:root .light {
+  --page-color: gainsboro;
+  --bg-color: white;
+  --basic-bg-color: white;
+  --checkbox-accent-color: var(--accent-color);
+  --text-color: #333;
+  --basic-text-color: black;
+  --highlighted-text-color: white;
+  --button-color: white;
+  --bg-button-color: var(--accent-color);
+  --disabled-button-color: gray;
+  --bg-disabled-button-color: white;
+}
+
+@media (prefers-color-scheme: light) {
+  :root,
+  ::backdrop {
+    --page-color: gainsboro;
+    --bg-color: white;
+    --basic-bg-color: white;
+    --checkbox-accent-color: var(--accent-color);
+    --text-color: #333;
+    --basic-text-color: black;
+    --highlighted-text-color: white;
+    --button-color: white;
+    --bg-button-color: var(--accent-color);
+    --disabled-button-color: gray;
+    --bg-disabled-button-color: white;
+  }
+}
+
+@supports (color: color-mix(in srgb, red 0%, red)) {
+  :root,
+  :root .light {
+    --page-color: color-mix(in srgb, var(--accent-color) 10%, white);
+    --bg-color: color-mix(in srgb, var(--accent-color) 15%, white);
+    --checkbox-accent-color: color-mix(
+      in srgb,
+      var(--accent-color) 75%,
+      var(--bg-color)
+    );
+    --text-color: color-mix(in srgb, var(--accent-color) 90%, black);
+    --highlighted-text-color: color-mix(
+      in srgb,
+      var(--accent-color) 10%,
+      white
+    );
+    --button-color: color-mix(in srgb, var(--accent-color) 50%, black);
+    --bg-button-color: color-mix(in srgb, var(--accent-color) 50%, white);
+    --disabled-button-color: color-mix(in srgb, var(--accent-color) 70%, white);
+    --bg-disabled-button-color: color-mix(
+      in srgb,
+      var(--accent-color) 20%,
+      white
+    );
+  }
+}
+
+:root .dark {
+  --page-color: #333;
+  --bg-color: black;
+  --basic-bg-color: black;
+  --checkbox-accent-color: var(--accent-color);
+  --text-color: gainsboro;
+  --basic-text-color: white;
+  --highlighted-text-color: black;
+  --button-color: black;
+  --bg-button-color: var(--accent-color);
+  --disabled-button-color: white;
+  --bg-disabled-button-color: black;
+}
+
+@supports (color: color-mix(in srgb, red 0%, red)) {
+  :root .dark {
+    --page-color: color-mix(in srgb, var(--accent-color) 10%, black);
+    --bg-color: color-mix(in srgb, var(--accent-color) 15%, black);
+    --checkbox-accent-color: color-mix(
+      in srgb,
+      var(--accent-color) 75%,
+      var(--bg-color)
+    );
+    --text-color: color-mix(in srgb, var(--accent-color) 90%, white);
+    --highlighted-text-color: color-mix(
+      in srgb,
+      var(--accent-color) 10%,
+      black
+    );
+    --button-color: color-mix(in srgb, var(--accent-color) 50%, white);
+    --bg-button-color: color-mix(in srgb, var(--accent-color) 50%, black);
+    --disabled-button-color: color-mix(in srgb, var(--accent-color) 50%, black);
+    --bg-disabled-button-color: color-mix(
+      in srgb,
+      var(--accent-color) 20%,
+      black
+    );
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root,
+  ::backdrop {
+    --page-color: #333;
+    --bg-color: black;
+    --basic-bg-color: black;
+    --checkbox-accent-color: var(--accent-color);
+    --text-color: gainsboro;
+    --basic-text-color: white;
+    --highlighted-text-color: black;
+    --button-color: black;
+    --bg-button-color: var(--accent-color);
+    --disabled-button-color: white;
+    --bg-disabled-button-color: black;
+  }
+
+  @supports (color: color-mix(in srgb, red 0%, red)) {
+    :root {
+      --page-color: color-mix(in srgb, var(--accent-color) 10%, black);
+      --bg-color: color-mix(in srgb, var(--accent-color) 15%, black);
+      --checkbox-accent-color: color-mix(
+        in srgb,
+        var(--accent-color) 75%,
+        var(--bg-color)
+      );
+      --text-color: color-mix(in srgb, var(--accent-color) 90%, white);
+      --highlighted-text-color: color-mix(
+        in srgb,
+        var(--accent-color) 10%,
+        black
+      );
+      --button-color: color-mix(in srgb, var(--accent-color) 50%, white);
+      --bg-button-color: color-mix(in srgb, var(--accent-color) 50%, black);
+      --disabled-button-color: color-mix(
+        in srgb,
+        var(--accent-color) 50%,
+        black
+      );
+      --bg-disabled-button-color: color-mix(
+        in srgb,
+        var(--accent-color) 20%,
+        black
+      );
+    }
+  }
+}
+
+body {
+  font-weight: 400;
+  font-family: "Exo";
+}
+
+ol {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+ol li {
+  display: flex;
+  align-items: center;
+}
+
+button {
+  border: solid var(--accent-color) 0.05em;
+  user-select: none;
+  background-color: var(--bg-button-color);
+  color: var(--button-color);
+  font-size: 0.8em;
+  white-space: nowrap;
+}
+
+button:disabled {
+  color: var(--disabled-button-color);
+  background-color: var(--bg-disabled-button-color);
+  opacity: 0.5;
+}
+
+button.flashing-button {
+  animation-name: flashing-button-animation;
+  animation-duration: 0.2s;
+}
+
+@keyframes flashing-button-animation {
+  0% {
+    opacity: 0.85;
+    outline: 0;
+  }
+  50% {
+    opacity: 1;
+    outline: 1px solid var(--button-color);
+  }
+}
+
+a,
+a:visited {
+  color: inherit;
+}
+
+:focus {
+  outline: 1px solid var(--button-color);
+}
+
+::selection {
+  background-color: var(--text-color);
+  color: var(--bg-color);
+}
+
+@media (display-mode: standalone) {
+  body {
+    max-inline-size: none;
+  }
+}

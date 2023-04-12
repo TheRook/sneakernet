@@ -1,0 +1,64 @@
+dialog::backdrop {
+  background-color: var(--basic-bg-color);
+  opacity: 0.85;
+}
+
+dialog {
+  margin-block-start: min(10dvh, 5em);
+  flex-direction: column;
+  width: min(40ch, 75dvw);
+  background-color: var(--page-color);
+  color: var(--text-color);
+  border: solid var(--accent-color) 0.1em;
+  margin-inline: auto;
+}
+
+dialog input {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  border: solid var(--accent-color) 0.05em;
+  height: 1.8em;
+  padding-inline: 0.75ch;
+  font-size: 1em;
+  margin-inline: 1px;
+}
+
+dialog form {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1em;
+  max-height: 70dvh;
+}
+
+dialog form .dialog-title {
+  font-weight: 500;
+}
+
+dialog form p {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1em;
+  margin: 0;
+  padding-block: 1em;
+  overflow: auto;
+}
+
+dialog label {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.75em;
+}
+
+dialog .button-bar {
+  margin-block-start: 0.5em;
+}
+
+dialog .button-group:first-of-type {
+  flex: 1;
+}
+
+@media (max-width: 80ch) {
+  dialog input {
+    height: 1.4em;
+  }
+}

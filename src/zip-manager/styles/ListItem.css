@@ -1,0 +1,18 @@
+.list-item-button {
+  font-family: monospace;
+  cursor: pointer;
+  opacity: 0.75;
+  padding-inline: 0.5ch;
+  padding-block: 0.2em;
+  user-select: none;
+}
+
+.list-item-button:hover {
+  opacity: 1;
+}
+
+.list-item-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

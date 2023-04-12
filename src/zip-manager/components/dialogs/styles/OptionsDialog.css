@@ -1,0 +1,32 @@
+.options-dialog label {
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.options-dialog input {
+  margin-inline-start: 1ch;
+}
+
+.options-dialog input[disabled] {
+  color: var(--disabled-button-color);
+}
+
+.options-dialog input[type="checkbox"] {
+  width: 2ch;
+  height: 1em;
+  accent-color: var(--accent-color);
+  margin-inline: 3px;
+}
+
+.options-dialog input[type="password"],
+.options-dialog input[type="number"] {
+  width: min(10ch, 100%);
+}
+
+@media (max-width: 80ch) {
+  .options-dialog input[type="checkbox"] {
+    width: 1.5ch;
+  }
+}
