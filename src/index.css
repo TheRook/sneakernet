@@ -8,7 +8,6 @@ body {
 }
 
 @font-face {
-  font-family: "Exo";
-  src: url("/public/fonts/Exo-VariableFont_wght.ttf");
+  font-family: "Exo,Roboto,Arial";
   font-display: swap;
 }
