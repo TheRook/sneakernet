@@ -28,11 +28,12 @@ module.exports = {
     new FileManagerPlugin({
       events: {
         onEnd: {
-          /*move: [
-            { source: './dist/*.js', destination: 'web/' },
-            { source: './dist/*.css', destination: 'web/' },
-          ],*/
-          delete: ['./dist/*.js', './dist/*.css']
+          move: [
+            { source: './dist/main.js', destination: './public/main.js' },
+            { source: './dist/main.css', destination: './public/main.css' },
+            { source: './src/service-worker.js', destination: './public/service-worker.js' },
+          ],
+         // delete: ['./dist/*.js', './dist/*.css']
         }
       }
     }), 
