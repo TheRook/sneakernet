@@ -2,6 +2,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlMinimizerPlugin = require("html-minimizer-webpack-plugin");
 const TerserPlugin = require('terser-webpack-plugin');
+const FileManagerPlugin = require('filemanager-webpack-plugin');
 
 const fs = require('fs');
 var HtmlWebpackInlineSourcePlugin = require('@effortlessmotion/html-webpack-inline-source-plugin');
@@ -13,19 +14,28 @@ module.exports = {
   entry: './src/index.js',
   output: {
     path: __dirname + '/dist',
-    publicPath: "self.location"
-    // filename: 'index_bundle.js'
+    publicPath: ""
   },
   plugins: [
     new MiniCssExtractPlugin(),
     new HtmlWebpackPlugin({
-        title: "zip",
+        title: "rook",
         inject: "body",
-        // filename: './dist/index.html', //relative to root of the application
+        // filename: 'index.html', //relative to root of the application
         inlineSource: '.(js|css)$' // embed all javascript and css inline        
     }),
-    new HtmlWebpackInlineSourcePlugin()
-    //new WebpackPandocPlugin()
+    new HtmlWebpackInlineSourcePlugin(),
+    new FileManagerPlugin({
+      events: {
+        onEnd: {
+          /*move: [
+            { source: './dist/*.js', destination: 'web/' },
+            { source: './dist/*.css', destination: 'web/' },
+          ],*/
+          delete: ['./dist/*.js', './dist/*.css']
+        }
+      }
+    }), 
   ],
   module: {
     // exclude node_modules
