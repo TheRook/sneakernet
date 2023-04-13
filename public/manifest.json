@@ -1,8 +1,8 @@
 {
-  "short_name": "Zip Manager",
-  "name": "Zip Manager",
+  "short_name": "Rookery",
+  "name": "Rookery",
   "description": "Read, edit and write zip files.",
-  "start_url": "./index.html",
+  "start_url": "index.html",
   "display": "fullscreen",
   "theme_color": "#000000",
   "background_color": "#ffffff",
@@ -50,11 +50,29 @@
   ],
   "file_handlers": [
     {
-      "action": "./index.html",
+      "action": "index.html",
       "accept": {
+        "image/png": [
+          ".png"
+        ],
+        "image/jpeg": [
+          ".jpeg"
+        ],   
+        "image/jpg": [
+          ".jpg"
+        ],    
+        "image/gif": [
+          ".gif"
+        ],                       
+        "video/webm": [
+          ".webm"
+        ],        
         "application/zip": [
           ".zip"
         ],
+        "application/html": [
+          ".html"
+        ],             
         "application/vnd.openxmlformats-officedocument.wordprocessingml.document": [
           ".docx"
         ],

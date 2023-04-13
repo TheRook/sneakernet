@@ -3,8 +3,6 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlMinimizerPlugin = require("html-minimizer-webpack-plugin");
 const TerserPlugin = require('terser-webpack-plugin');
 const FileManagerPlugin = require('filemanager-webpack-plugin');
-
-const fs = require('fs');
 var HtmlWebpackInlineSourcePlugin = require('@effortlessmotion/html-webpack-inline-source-plugin');
 
 isProduction = true;
@@ -19,24 +17,24 @@ module.exports = {
   plugins: [
     new MiniCssExtractPlugin(),
     new HtmlWebpackPlugin({
-        title: "rook",
+        title: "The Rookery",
         inject: "body",
         // filename: 'index.html', //relative to root of the application
-        inlineSource: '.(js|css)$' // embed all javascript and css inline        
+        inlineSource: '.(js|css)$' // embed all javascript and css inline
     }),
     new HtmlWebpackInlineSourcePlugin(),
     new FileManagerPlugin({
       events: {
         onEnd: {
+          delete: ['./public/main.js','./public/main.css', './public/service-worker.js' ],
           move: [
             { source: './dist/main.js', destination: './public/main.js' },
             { source: './dist/main.css', destination: './public/main.css' },
             { source: './src/service-worker.js', destination: './public/service-worker.js' },
           ],
-         // delete: ['./dist/*.js', './dist/*.css']
         }
       }
-    }), 
+    }),
   ],
   module: {
     // exclude node_modules
@@ -55,7 +53,7 @@ module.exports = {
   },
   // pass all js files through Babel
   resolve: {
-    extensions: [".js", "*.css"],
+    extensions: [".js", ".css"],
   },
   optimization: {
     minimize: true,
