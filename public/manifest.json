@@ -56,11 +56,21 @@
           ".png"
         ],
         "image/jpeg": [
-          ".jpeg"
+          ".jpeg",
+          ".jpg",
+          "jfif",
+          "pjpeg",
+          "pjp"
+        ],  
+        "image/webp": [
+          ".webp"
+        ],      
+        "image/avif": [
+          ".avif"
+        ],               
+        "image/svg+xml":[
+          ".svg"
         ],   
-        "image/jpg": [
-          ".jpg"
-        ],    
         "image/gif": [
           ".gif"
         ],                       
@@ -111,6 +121,9 @@
         ],
         "application/x-ios-app": [
           ".ipa"
+        ],
+        "audio/mpeg": [
+          ".mp3"
         ]
       },
       "launch_type": "single-client"
