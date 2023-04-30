@@ -1,0 +1,28 @@
+<svg viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg" onclick="p();">
+  <script>
+  s=0;
+  function p(){
+    if(!s){
+      m.play();
+      s=1;
+      document.getElementById('m').beginElement();
+    }else{
+      m.pause();
+      s=0;
+    }
+  }
+  u = "https://upload.wikimedia.org/wikipedia/commons/5/5e/Debussy_-_Pour_les_accords.flac"
+  m = new Audio(u);
+  </script>
+  <path
+    fill="none"
+    stroke="lightgrey"
+    d="M20,50 C20,-50 180,150 180,50 C180-50 20,150 20,50 z" />
+  <circle r="5" fill="red">
+    <animateMotion
+      id="m"
+      dur="10s"
+      repeatCount="indefinite"
+      path="M20,50 C20,-50 180,150 180,50 C180-50 20,150 20,50 z" />
+  </circle>
+</svg>

@@ -38,7 +38,7 @@ function TopButtonBar({
       onDragOver={handleDragOver}
       onDrop={handleDrop}
     >
-      <div className="button-group">
+     {/* <div className="button-group">
         <AddFilesButton
           clickedButtonName={clickedButtonName}
           onAddFiles={onAddFiles}
@@ -54,7 +54,7 @@ function TopButtonBar({
           constants={constants}
           messages={messages}
         />
-      </div>
+      </div> */}
       <div className="button-group">
         <ImportZipButton
           clickedButtonName={clickedButtonName}
@@ -184,8 +184,7 @@ function ImportZipButton({
       if (util.openFilePickerSupported()) {
         const files = await util.showOpenFilePicker({
           multiple: false,
-          description: messages.ZIP_FILE_DESCRIPTION_LABEL,
-          accept: ZIP_EXTENSIONS_ACCEPT
+          description: messages.ZIP_FILE_DESCRIPTION_LABEL
         });
         if (files.length) {
           onImportZipFile(files[0]);
@@ -212,7 +211,6 @@ function ImportZipButton({
         onChange={handleChange}
         ref={fileInputRef}
         type="file"
-        accept={ZIP_EXTENSIONS_ACCEPT_STRING}
         hidden
       />
     </>
