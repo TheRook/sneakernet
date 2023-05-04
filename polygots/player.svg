@@ -1,6 +1,33 @@
 <svg viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg" onclick="p();">
-  <script>
+  <script><![CDATA[  
+  u = "https://upload.wikimedia.org/wikipedia/commons/5/5e/Debussy_-_Pour_les_accords.flac";
+  h = "0845fd72d0c562854533f4e4429fd586f86e2e3052d3542f54476fa350044421";  
   s=0;
+  m=0;
+  function downloadAndVerifyAudio(url, hash) {
+    let blob;
+    return fetch(url)
+      .then(response => response.blob())
+      .then(b => {
+        blob = b;
+        return blob.arrayBuffer();
+      })
+      .then(buffer => crypto.subtle.digest('SHA-256', buffer))
+      .then(hashArray => Array.from(new Uint8Array(hashArray)))
+      .then(hashBytes => hashBytes.map(b => b.toString(16).padStart(2, '0')).join(''))
+      .then(hashHex => {
+        if (hashHex !== hash) {
+          return false;
+        }
+        const audio = new Audio();
+        audio.src = URL.createObjectURL(blob);
+        return audio;
+      })
+      .catch(error => {
+        console.error('Error downloading audio:', error);
+        return false;
+      });
+  }
   function p(){
     if(!s){
       m.play();
@@ -11,9 +38,16 @@
       s=0;
     }
   }
-  u = "https://upload.wikimedia.org/wikipedia/commons/5/5e/Debussy_-_Pour_les_accords.flac"
-  m = new Audio(u);
-  </script>
+  downloadAndVerifyAudio(u, h).then(audio => {
+    if (audio) {
+      m = audio;
+    } else {
+      downloadAndVerifyAudio("https://gateway.ipfs.io/ipfs/"+h, h).then(backup => {
+        m = backup;
+      });
+    }
+  });
+  ]]></script>
   <path
     fill="none"
     stroke="lightgrey"
